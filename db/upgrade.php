@@ -36,6 +36,35 @@ defined('MOODLE_INTERNAL') || die();
 function xmldb_local_insalyon_upgrade($oldversion) {
     global $CFG, $DB;
 
+    $dbman = $DB->get_manager();
+
+    //===== adding attributes to mdl_user for LDAP synch  ======//
+
+    if ($oldversion < 2012012413) {
+        $table = new xmldb_table('user');
+
+        // primary group in scolarity database
+        $field = new xmldb_field('insa_group_scol', XMLDB_TYPE_CHAR, '64', null,null, null, '');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // LDAP attribute unique for any employee, student ...  used by our gravatar like server
+        $field = new xmldb_field('insa_unique_id', XMLDB_TYPE_CHAR, '64', null, null, null, '');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+        //true if this account has been processed via nightly ldap sync
+        $field = new xmldb_field('insa_ldap_sync', XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+    }
+
+
+
+
   return true;
 
 
