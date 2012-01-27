@@ -22,18 +22,45 @@ function local_pp_error_log ($intro,$ex) {
 function local_course_created($course) {
     global $DB,$CFG,$USER;
     local_pp_error_log ("processing course created local event@insalyon",$course);
+    return true; //important
    
 }
 
+
 /**
- * course created event handler
- *
- * @param object $course full $course object just updated in DB
- */
+* course created event handler
+*
+* @param object $course full $course object just inserted in DB
+*/
 function local_course_updated($course) {
     global $DB,$CFG,$USER;
     local_pp_error_log ("processing course updated local event@insalyon",$course);
+    return true; //important
+}
 
+/**
+ * role asiigned  event handler
+ *
+ * @param object $ra full object just updated in DB
+ */
+function local_role_assigned($ra) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing role assigned local event@insalyon",$ra);
+    return true; //important
 }  
+
+
+/**
+ * role unsiigned  event handler
+ *
+ * @param object $ra full object just updated in DB
+ */
+function local_role_unassigned($ra) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing role unassigned local event@insalyon",$ra);
+    return true; //important
+
+}
+
 
 ?>

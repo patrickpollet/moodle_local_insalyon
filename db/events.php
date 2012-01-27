@@ -38,6 +38,18 @@ $handlers = array (
         'schedule'         => 'instant',
         'internal'         => 0,
     ),
+    'role_assigned' => array (
+        'handlerfile'      => '/local/insalyon/lib.php',
+        'handlerfunction'  => 'local_role_assigned',
+        'schedule'         => 'instant',
+        'internal'         => 0,
+    ),
+    'role_unassigned' => array (
+        'handlerfile'      => '/local/insalyon/lib.php',
+        'handlerfunction'  => 'local_role_unassigned',
+        'schedule'         => 'instant',
+        'internal'         => 0,
+),
  
 
 );
