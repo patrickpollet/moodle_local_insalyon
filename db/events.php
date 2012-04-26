@@ -49,7 +49,12 @@ $handlers = array (
         'handlerfunction'  => 'local_role_unassigned',
         'schedule'         => 'instant',
         'internal'         => 0,
-),
+	),
+	 'groups_group_created'     => array(
+            'handlerfile'     => '/local/insalyon/lib.php',
+            'handlerfunction' => 'local_groups_group_created_handler',
+            'schedule'        => 'instant'
+        ),
  
 
 );
