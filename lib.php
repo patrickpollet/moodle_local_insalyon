@@ -65,6 +65,7 @@ function local_role_unassigned($ra) {
 }
 
 
+
 /**
  * user enrolled  event handler
  *
@@ -100,6 +101,32 @@ function local_user_enrol_modified($ue) {
     local_pp_error_log ("processing user enrol modified local event@insalyon",$ue);
     return true; //important
 
+}
+
+function local_groups_group_created_handler($eventdata) {
+    global $CFG;
+	 local_pp_error_log ("processing group created local event@insalyon",$eventdata);
+    if(!$CFG->enablegroupings) {
+        return true;   //ignore
+    }
+
+    $data = new stdClass();
+
+    $data->courseid     = $eventdata->courseid;
+    $data->name         = $eventdata->name;
+    $data->description  = $eventdata->description;
+    $data->timecreated  = $eventdata->timecreated;
+    $data->timemodified = $eventdata->timemodified;
+
+    if(!($id = groups_create_grouping($data))) {
+        return false;
+    }
+
+    if(!groups_assign_grouping($id, $eventdata->id)) {
+        return false;
+    }
+
+    return true;
 }
 
 ?>
