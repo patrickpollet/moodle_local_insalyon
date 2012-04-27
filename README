@@ -1,0 +1,25 @@
+This project contains examples of local handlers for Moodle 2.x events such as user_created, user_enrolled ...
+
+Use it as a model to write your own event handlers.
+
+USAGE :
+
+Git clone this by going to local directory of your Moodle 2.x installation
+
+cd /var/www/moodle/local 
+git clone git@github.com:patrickpollet/moodle_local_insalyon.git insalyon
+
+The name of the extraction directory in mandatory since Moodle will search a file lang/local_insalyon
+
+Go to Site Adminstration then Notifications. You should see that a local plugin named 'personnalisations...' needs to be updated. 
+Press continue.
+
+This has installed several local handlers for interesting Moodle events (see insalyon/db/events.php for a list). 
+
+Most of these handlers do nothing, just logging that they were called  and with what parameters in a file named pp_debug_errors_log 
+
+One one them DO the real thing :groups_group_created . Every time a group is created in a Moodle course, a grouping with the same name is automagically created.
+
+
+Enjoy
+

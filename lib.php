@@ -103,10 +103,17 @@ function local_user_enrol_modified($ue) {
 
 }
 
+/**
+ * group created local event handler 
+ * automatically create a grouping withe the very same name 
+ * @param unknown_type $eventdata
+ */
 function local_groups_group_created_handler($eventdata) {
     global $CFG;
 	 local_pp_error_log ("processing group created local event@insalyon",$eventdata);
-    if(!$CFG->enablegroupings) {
+    
+	 //Moodle 1.9x has enablegroupings as an experimental option , not 2.x
+	 if($CFG->version < 2011112900 && !$CFG->enablegroupings) {
         return true;   //ignore
     }
 
@@ -119,11 +126,11 @@ function local_groups_group_created_handler($eventdata) {
     $data->timemodified = $eventdata->timemodified;
 
     if(!($id = groups_create_grouping($data))) {
-        return false;
+        return false; //event stays in queue 
     }
 
     if(!groups_assign_grouping($id, $eventdata->id)) {
-        return false;
+        return false;  //event stays in queue 
     }
 
     return true;
