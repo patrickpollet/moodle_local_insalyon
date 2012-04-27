@@ -16,7 +16,8 @@ Press continue.
 
 This has installed several local handlers for interesting Moodle events (see insalyon/db/events.php for a list). 
 
-Most of these handlers do nothing, just logging that they were called  and with what parameters in a file named pp_debug_errors_log 
+Most of these handlers do nothing, just logging that they were called  and with what parameters in a file named pp_debug_errors_log in your moodledata directory.
+This should give you all needed informations about the parameter received from Moodle core. 
 
 One one them DO the real thing :groups_group_created . Every time a group is created in a Moodle course, a grouping with the same name is automagically created.
 
