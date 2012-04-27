@@ -60,6 +60,10 @@ function xmldb_local_insalyon_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
+        upgrade_plugin_savepoint(true, 2012012413, 'local', 'insalyon', false);
+
+
+
     }
 
 

@@ -49,7 +49,25 @@ $handlers = array (
         'handlerfunction'  => 'local_role_unassigned',
         'schedule'         => 'instant',
         'internal'         => 0,
-),
+    ),
+    'user_enrolled' => array (
+        'handlerfile'      => '/local/insalyon/lib.php',
+        'handlerfunction'  => 'local_user_enrolled',
+        'schedule'         => 'instant',
+        'internal'         => 0,
+    ),
+     'user_unenrolled' => array (
+        'handlerfile'      => '/local/insalyon/lib.php',
+        'handlerfunction'  => 'local_user_unenrolled',
+        'schedule'         => 'instant',
+        'internal'         => 0,
+    ),
+     'user_enrol_modified' => array (
+        'handlerfile'      => '/local/insalyon/lib.php',
+        'handlerfunction'  => 'local_user_enrol_modified',
+        'schedule'         => 'instant',
+        'internal'         => 0,
+    ),
  
 
 );

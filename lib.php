@@ -1,5 +1,7 @@
 <?php
 
+defined('MOODLE_INTERNAL') || die();
+
 define ('ADMIN_USER','ppollet');
 
 /**
@@ -62,5 +64,42 @@ function local_role_unassigned($ra) {
 
 }
 
+
+/**
+ * user enrolled  event handler
+ *
+ * @param object $ue full object just updated in DB
+ */
+function local_user_enrolled($ue) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing user enrolled local event@insalyon",$ue);
+    return true; //important
+
+}
+
+
+/**
+ * user unenrolled  event handler
+ *
+ * @param object $ue full object just updated in DB
+ */
+function local_user_unenrolled($ue) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing user unenrolled local event@insalyon",$ue);
+    return true; //important
+
+}
+
+/**
+ * user enrol updated  event handler
+ *
+ * @param object $ue full object just updated in DB
+ */
+function local_user_enrol_modified($ue) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing user enrol modified local event@insalyon",$ue);
+    return true; //important
+
+}
 
 ?>

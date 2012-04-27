@@ -16,6 +16,9 @@
 
 /**
  * installation code for the local/insalyon module.
+ * Post installation and migration code.
+ * This file replaces:
+ *   - STATEMENTS section in db/install.xml
  *
  * @package    local
  * @subpackage insalyon
