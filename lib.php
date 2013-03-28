@@ -4,6 +4,12 @@ defined('MOODLE_INTERNAL') || die();
 
 define ('ADMIN_USER','ppollet');
 
+
+
+
+
+
+
 /**
  *  log a description and a value to a file in moodledata directory
  */
@@ -105,7 +111,7 @@ function local_user_enrol_modified($ue) {
 
 /**
  * group created local event handler 
- * automatically create a grouping withe the very same name 
+ * automatically create a grouping with the very same name 
  * @param unknown_type $eventdata
  */
 function local_groups_group_created_handler($eventdata) {

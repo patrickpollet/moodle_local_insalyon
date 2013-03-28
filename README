@@ -9,7 +9,7 @@ Git clone this by going to local directory of your Moodle 2.x installation
 cd /var/www/moodle/local 
 git clone git@github.com:patrickpollet/moodle_local_insalyon.git insalyon
 
-The name of the extraction directory in mandatory since Moodle will search a file lang/local_insalyon
+The name of the extraction directory in mandatory since Moodle will search a file lang/local_insalyon.php for localized strings
 
 Go to Site Adminstration then Notifications. You should see that a local plugin named 'personnalisations...' needs to be updated. 
 Press continue.
@@ -23,4 +23,6 @@ One one them DO the real thing :groups_group_created . Every time a group is cre
 
 
 Enjoy
+
+
 
