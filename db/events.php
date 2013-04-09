@@ -68,14 +68,18 @@ $handlers = array (
         'handlerfunction'  => 'local_user_enrol_modified',
         'schedule'         => 'instant',
         'internal'         => 0,
-    ),
-    
+    ),   
 	 'groups_group_created'     => array(
             'handlerfile'     => '/local/insalyon/lib.php',
             'handlerfunction' => 'local_groups_group_created_handler',
             'schedule'        => 'instant'
         ),
-
- 
+       
+     'cas_user_login'     => array(
+            'handlerfile'     => '/local/insalyon/lib.php',
+            'handlerfunction' => 'local_cas_user_login_handler',
+            'schedule'        => 'instant'
+        ),
+      
 
 );

@@ -22,6 +22,21 @@ function local_pp_error_log ($intro,$ex) {
         error_log (time().' : ' .$intro.' : '.$info,3,$CFG->dataroot.'/pp_debug_errors.log' );
 }
 
+
+/**
+ * user login via CAS
+ *
+ * @param object $user full $user object just extracted from DB in mdl_user
+ */
+function local_cas_user_login_handler($user) {
+    global $DB,$CFG,$USER;
+    local_pp_error_log ("processing CAS user login local event@insalyon eventdata is ",$user);
+   // global USER is not completed yet at this stage ... 
+   // local_pp_error_log ("processing CAS user login local event@insalyon USER is ",$USER);
+    return true; //important
+   
+}
+
 /**
  * course created event handler
  *
