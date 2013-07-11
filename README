@@ -7,7 +7,7 @@ USAGE :
 Git clone this by going to local directory of your Moodle 2.x installation
 
 cd /var/www/moodle/local 
-git clone git@github.com:patrickpollet/moodle_local_insalyon.git insalyon
+git clone https://github.com/patrickpollet/moodle_local_insalyon.git insalyon
 
 The name of the extraction directory in mandatory since Moodle will search a file lang/local_insalyon.php for localized strings
 
